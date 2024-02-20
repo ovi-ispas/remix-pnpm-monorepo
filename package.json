@@ -1,0 +1,33 @@
+{
+  "name": "@remix-pnpm-monorepo/root",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Basic pnpm monorepo template for Remix apps",
+  "keywords": [
+    "remix",
+    "pnpm",
+    "monorepo"
+  ],
+  "license": "MIT",
+  "packageManager": "pnpm@8.15.3",
+  "scripts": {
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "build": "pnpm -r build",
+    "build:remix-app-1": "pnpm --filter remix-app-1 build",
+    "build:remix-app-2": "pnpm --filter remix-app-2 build",
+    "docker:build": "pnpm -r docker:build",
+    "docker:build:remix-app-1": "docker build -t remix-app-1 -f ./apps/remix-app-1/Dockerfile .",
+    "docker:build:remix-app-2": "docker build -t remix-app-2 -f ./apps/remix-app-2/Dockerfile .",
+    "docker:run": "pnpm -r docker:run",
+    "docker:run:remix-app-1": "docker rm -f remix-app-1 || true && docker run -d --restart always --name remix-app-1 -p 3000:3000 --env-file ./apps/remix-app-1/.env remix-app-1:latest",
+    "docker:run:remix-app-2": "docker rm -f remix-app-2 || true && docker run -d --restart always --name remix-app-2 -p 3001:3000 --env-file ./apps/remix-app-2/.env remix-app-2:latest",
+    "docker:ps": "docker ps",
+    "docker:stop": "docker stop remix-app-1 remix-app-2",
+    "docker:stop:remix-app-1": "docker stop remix-app-1",
+    "docker:stop:remix-app-2": "docker stop remix-app-2",
+    "docker:clean": "docker container prune -f && docker image prune -f",
+    "deps:ls": "pnpm -r ls",
+    "deps:update": "pnpm -r update --latest -i"
+  }
+}

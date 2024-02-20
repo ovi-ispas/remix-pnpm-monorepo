@@ -1,0 +1,23 @@
+{
+  "name": "@remix-pnpm-monorepo/ui",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Components library for the apps in the monorepo",
+  "keywords": [
+    "ui library",
+    "components",
+    "react"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@types/node": "^20.11.17",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19"
+  }
+}
